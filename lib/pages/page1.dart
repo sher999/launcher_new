@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:launcher_new/widgets/brightness.dart';
 
 import '../widgets/clock.dart';
 
@@ -22,6 +23,7 @@ class _Page1State extends State<Page1> {
     return PageView(
       children: const [
         Clock(),
+        
         // second page app list
       ],
     );
