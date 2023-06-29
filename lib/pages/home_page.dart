@@ -37,10 +37,22 @@ class _HomeState extends State<Home> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: SafeArea(
-        child: PageView(
+        child: Stack(
           children: [
-            const Page1(),
-            const Page2(),
+            SizedBox(
+              
+              height: double.infinity,
+              width: double.infinity,
+              
+              child: Image.asset('assets/image/image3.jpg',fit:BoxFit.fill,),
+              
+            ),
+            PageView(
+              children: const [
+                Page1(),
+                Page2(),
+              ],
+            ),
           ],
         ),
       ),

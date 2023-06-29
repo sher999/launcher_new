@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:hive/hive.dart';
+import 'package:launcher_new/main.dart';
 
 class AppList extends StatefulWidget {
   const AppList({Key? key}) : super(key: key);
@@ -15,6 +17,22 @@ class _AppListState extends State<AppList> {
   final BouncingScrollPhysics _bouncingScrollPhysics =
       const BouncingScrollPhysics();
 
+
+  // refrence our box
+  final _apps = Hive.box('apps');
+
+  //write data
+  void writeData() {}
+
+  //read data
+  void readData() {}
+
+
+  //delete data
+  void deleteData() {}
+  
+
+
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -26,6 +44,7 @@ class _AppListState extends State<AppList> {
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.done) {
           List<Application>? allApps = snapshot.data as List<Application>?;
+          // Hive.box(Apps).put('apps', allApps);
 
           allApps?.sort((a, b) => a.toString().compareTo(b.toString()));
 

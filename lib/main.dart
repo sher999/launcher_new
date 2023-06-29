@@ -1,7 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:launcher_new/pages/home_page.dart';
+import 'package:launcher_new/widgets/applist.dart';
+import 'package:launcher_new/widgets/hive_data.dart';
 
-void main() {
+
+late Box box;
+
+Future<void> main() async {
+
+
+  // initialize hive
+  await Hive.initFlutter();
+
+  // open box
+  box = await Hive.openBox('apps');
+  
+
+
   runApp(const MyApp());
 }
 

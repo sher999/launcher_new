@@ -45,8 +45,9 @@ class _BrightnessState extends State<Brightness> {
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Icon(Icons.settings_display_outlined,color: Colors.black,size: 25,),
           Expanded(
-            child: Slider(max: brightness.toInt() < 100 ? 100 : brightness,value: brightness, onChanged: (value) {
+            child: Slider(activeColor: Colors.lightBlue.shade400,inactiveColor: Colors.blue.shade100,max: brightness.toInt() < 1 ? 1 : brightness,value: brightness, onChanged: (value) {
               setState(() {
                 brightness = value;
               });
