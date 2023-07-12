@@ -1,6 +1,6 @@
 # launcher_new
 
-A new Flutter project.
+Android launcher built with flutter , to change the experience of using android , seamless integrattion of usability,
 
 ## Getting Started
 
