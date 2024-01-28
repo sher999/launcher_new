@@ -15,28 +15,27 @@ class Clock extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            TimerBuilder.periodic(const Duration(seconds: 1),
-                builder: (context) {
-              var currentTime = DateTime.now();
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          TimerBuilder.periodic(const Duration(seconds: 1), builder: (context) {
+            var currentTime = DateTime.now();
 
-              String seconds = currentTime.second < 10
-                  ? "0${currentTime.second}"
-                  : "${currentTime.second}";
+            String seconds = currentTime.second < 10
+                ? "0${currentTime.second}"
+                : "${currentTime.second}";
 
-              String minute = currentTime.minute < 10
-                  ? "0${currentTime.minute}"
-                  : "${currentTime.minute}";
+            String minute = currentTime.minute < 10
+                ? "0${currentTime.minute}"
+                : "${currentTime.minute}";
 
-              String hours = currentTime.hour < 10
-                  ? "0${currentTime.hour}"
-                  : "${currentTime.hour}";
+            String hours = currentTime.hour < 10
+                ? "0${currentTime.hour}"
+                : "${currentTime.hour}";
 
-              return Column(
+            return Padding(
+              padding: const EdgeInsets.fromLTRB(30, 0, 0, 0),
+              child: Column(
                 // crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   SizedBox(
@@ -62,169 +61,184 @@ class Clock extends StatelessWidget {
                   //   style: TextStyle(color: Colors.white, fontSize: 70),
                   // ),
                 ],
-              );
-            }),
-            SizedBox(
-              height: 100,
-            ),
-            Center(child: Weather()),
-            SizedBox(
-              height: 200,
-            ),
-            Container(
-              height: 100,
-              width: 350,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  GestureDetector(
-                    onTap: (() async{
-                        // Check whether app is installed
-                      bool isInstalled =
-                          await DeviceApps.isAppInstalled('com.whatsapp');
-
-                      // Call open the application what you want
-                      DeviceApps.openApp('com.whatsapp');
-                    }),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Color.fromARGB(115, 27, 26, 26)),
-                      height: 70,
-                      width: 70,
-                      child: Icon(
-                        Icons.whatsapp,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: (() async{
-                        // Check whether app is installed
-                      bool isInstalled =
-                          await DeviceApps.isAppInstalled('com.whatsapp');
-
-                      // Call open the application what you want
-                      DeviceApps.openApp('com.google.android.dialer');
-                    }),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Color.fromARGB(115, 27, 26, 26)),
-                      height: 70,
-                      width: 70,
-                      child: Icon(
-                        Icons.phone,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: (() async{
-                        // Check whether app is installed
-                      bool isInstalled =
-                          await DeviceApps.isAppInstalled('com.whatsapp');
-
-                      // Call open the application what you want
-                      DeviceApps.openApp('com.google.android.apps.nbu.paisa.user');
-                    }),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Color.fromARGB(115, 27, 26, 26)),
-                      height: 70,
-                      width: 70,
-                      child: Icon(
-                        Icons.currency_rupee_outlined,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  GestureDetector(
-                    onTap: (() async{
-                        // Check whether app is installed
-                      bool isInstalled =
-                          await DeviceApps.isAppInstalled('com.whatsapp');
-
-                      // Call open the application what you want
-                      DeviceApps.openApp('com.spotify.music');
-                    }),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50),
-                          color: Color.fromARGB(115, 27, 26, 26)),
-                      height: 70,
-                      width: 70,
-                      child: Icon(
-                        Icons.music_note_outlined,
-                        color: Colors.white,
-                      ),
-                    ),
-                  ),
-                  
-                ],
               ),
+            );
+          }),
+          SizedBox(
+            height: 100,
+          ),
+          Center(child: Weather()),
+          SizedBox(
+            height: 200,
+          ),
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                Container(
+                  height: 100,
+                  width: 350,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      GestureDetector(
+                        onTap: (() async {
+                          // Check whether app is installed
+                          bool isInstalled =
+                              await DeviceApps.isAppInstalled('com.whatsapp');
+          
+                          // Call open the application what you want
+                          DeviceApps.openApp('com.whatsapp');
+                        }),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Color.fromARGB(115, 27, 26, 26)),
+                          height: 70,
+                          width: 70,
+                          child: Icon(
+                            Icons.whatsapp,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: (() async {
+                          // Check whether app is installed
+                          bool isInstalled =
+                              await DeviceApps.isAppInstalled('com.whatsapp');
+          
+                          // Call open the application what you want
+                          DeviceApps.openApp('com.google.android.dialer');
+                        }),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Color.fromARGB(115, 27, 26, 26)),
+                          height: 70,
+                          width: 70,
+                          child: Icon(
+                            Icons.phone,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: (() async {
+                          // Check whether app is installed
+                          bool isInstalled =
+                              await DeviceApps.isAppInstalled('com.whatsapp');
+          
+                          // Call open the application what you want
+                          DeviceApps.openApp(
+                              'com.google.android.apps.nbu.paisa.user');
+                        }),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Color.fromARGB(115, 27, 26, 26)),
+                          height: 70,
+                          width: 70,
+                          child: Icon(
+                            Icons.currency_rupee_outlined,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                      GestureDetector(
+                        onTap: (() async {
+                          // Check whether app is installed
+                          bool isInstalled =
+                              await DeviceApps.isAppInstalled('com.whatsapp');
+          
+                          // Call open the application what you want
+                          DeviceApps.openApp('com.spotify.music');
+                        }),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(50),
+                              color: Color.fromARGB(115, 27, 26, 26)),
+                          height: 70,
+                          width: 70,
+                          child: Icon(
+                            Icons.music_note_outlined,
+                            color: Colors.white,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Container(
+            height: 100,
+            width: 350,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Color.fromARGB(115, 27, 26, 26)),
+                  height: 70,
+                  width: 70,
+                  child: Icon(
+                    Icons.swap_vert,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Color.fromARGB(115, 27, 26, 26)),
+                  height: 70,
+                  width: 70,
+                  child: Icon(
+                    Icons.vibration,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Color.fromARGB(115, 27, 26, 26)),
+                  height: 70,
+                  width: 70,
+                  child: Icon(
+                    Icons.wifi_outlined,
+                    color: Colors.white,
+                  ),
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(50),
+                      color: Color.fromARGB(115, 27, 26, 26)),
+                  height: 70,
+                  width: 70,
+                  child: Icon(
+                    Icons.light_sharp,
+                    color: Colors.white,
+                  ),
+                ),
+              ],
             ),
-            Container(
-              height: 100,
-              width: 350,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color.fromARGB(115, 27, 26, 26)),
-                    height: 70,
-                    width: 70,
-                    child: Icon(
-                      Icons.swap_vert,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color.fromARGB(115, 27, 26, 26)),
-                    height: 70,
-                    width: 70,
-                    child: Icon(
-                      Icons.vibration,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color.fromARGB(115, 27, 26, 26)),
-                    height: 70,
-                    width: 70,
-                    child: Icon(
-                      Icons.wifi_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: Color.fromARGB(115, 27, 26, 26)),
-                    height: 70,
-                    width: 70,
-                    child: Icon(
-                      Icons.light_sharp,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
+          ),
+              ],
             ),
-            Volume(),
-            SizedBox(
-              height: 10,
+          ),
+          
+          Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Column(
+              children: [
+                Volume(),
+                SizedBox(
+                  height: 10,
+                ),
+                Brightness(),
+              ],
             ),
-            Brightness()
-          ],
-        ),
+          )
+        ],
       ),
     );
   }

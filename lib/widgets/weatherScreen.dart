@@ -12,6 +12,7 @@ class Weather extends StatefulWidget {
 }
 
 class _WeatherState extends State<Weather> {
+  TextEditingController controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
@@ -24,20 +25,48 @@ class _WeatherState extends State<Weather> {
           return Column(
             children: [
               Center(
-                    child: Text(
-                      "${w1!.name}",
-                      style: const TextStyle(
-                        color: Colors.white70,
-                        fontWeight: FontWeight.w500,
-                        fontSize: 40,
-                      ),
+                child: GestureDetector(
+                  onDoubleTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (context) {
+                        return Container(
+                          child: AlertDialog(
+                            title: Text("Change City"),
+                            actions: [
+                              TextField(
+                                controller: controller,
+                                decoration: const InputDecoration(
+                                  border: OutlineInputBorder(
+                                    
+                                  ),
+                                hintText: "Enter City" 
+                                // ,suffixIcon: IconButton(onPressed: (){}, icon: Icon)
+                                ),
+                              ),
+                              TextButton(onPressed: (() {
+                                Navigator.pop(context);
+                              }), child: Text('OK'))
+                            ],
+                          ),
+                        );
+                      },
+                    );
+                  },
+                  child: Text(
+                    "${w1!.name}",
+                    style: const TextStyle(
+                      color: Colors.white70,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 40,
                     ),
                   ),
+                ),
+              ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
-                  
                   Text(
                     (w1!.main!.temp! - 273).toStringAsFixed(0),
                     style: const TextStyle(
@@ -97,96 +126,92 @@ class _WeatherState extends State<Weather> {
                 ),
               ),
               const SizedBox(height: 80),
-                        Container(
-                            height: 0.7,
-                            width: 300,
-                            color: Colors.white70),
-                        const SizedBox(height: 10),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    const Icon(Icons.air,
-                                        color: Colors.white70),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      "${(w1.wind!.speed)!.toStringAsFixed(1)} km/h",
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 2),
-                                    const Text(
-                                      "Wind",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    const Icon(Icons.water_drop_rounded,
-                                        color: Colors.white70),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      "${(w1.main!.humidity)!.toStringAsFixed(0)}%",
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 2),
-                                    const Text(
-                                      "Humidity",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    const Icon(Icons.cloud_queue_rounded,
-                                        color: Colors.white70),
-                                    const SizedBox(height: 5),
-                                    Text(
-                                      "${(100 - w1.clouds!.all!).toStringAsFixed(0)}%",
-                                      style: const TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                    const SizedBox(height: 2),
-                                    const Text(
-                                      "Chance of rain",
-                                      style: TextStyle(
-                                        color: Colors.white70,
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                            ],
+              Container(height: 0.7, width: 300, color: Colors.white70),
+              const SizedBox(height: 10),
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Icon(Icons.air, color: Colors.white70),
+                          const SizedBox(height: 5),
+                          Text(
+                            "${(w1.wind!.speed)!.toStringAsFixed(1)} km/h",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
                           ),
-                        ),
+                          const SizedBox(height: 2),
+                          const Text(
+                            "Wind",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Icon(Icons.water_drop_rounded,
+                              color: Colors.white70),
+                          const SizedBox(height: 5),
+                          Text(
+                            "${(w1.main!.humidity)!.toStringAsFixed(0)}%",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          const Text(
+                            "Humidity",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Expanded(
+                      child: Column(
+                        children: [
+                          const Icon(Icons.cloud_queue_rounded,
+                              color: Colors.white70),
+                          const SizedBox(height: 5),
+                          Text(
+                            "${(100 - w1.clouds!.all!).toStringAsFixed(0)}%",
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                          const SizedBox(height: 2),
+                          const Text(
+                            "Chance of rain",
+                            style: TextStyle(
+                              color: Colors.white70,
+                              fontSize: 17,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           );
         }

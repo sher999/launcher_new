@@ -61,17 +61,17 @@ class _AppListState extends State<AppList> {
                       padding: const EdgeInsets.all(16),
                       child: Row(children: [
                         SizedBox(
-                          height: 30,
-                          width: 30,
+                          height: 40,
+                          width: 40,
                           child: Image.memory(
-                              (allApps[index] as ApplicationWithIcon).icon),
+                              (allApps[index] as ApplicationWithIcon).icon,height: 30,width: 30,),
                         ),
                         const SizedBox(
                           width: 15,
                         ),
                         Text(
                           allApps[index].appName,
-                          style: const TextStyle(color: Colors.white),
+                          style: const TextStyle(color: Colors.white, backgroundColor: Color.fromARGB(21, 27, 26, 26))
                         ),
                       ]),
                     )
