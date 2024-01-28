@@ -1,3 +1,5 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:device_apps/device_apps.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
@@ -65,11 +67,11 @@ class Clock extends StatelessWidget {
             );
           }),
           SizedBox(
-            height: 100,
+            height: 10,
           ),
           Center(child: Weather()),
           SizedBox(
-            height: 200,
+            height: 20,
           ),
           Padding(
             padding: const EdgeInsets.all(20.0),
@@ -86,7 +88,7 @@ class Clock extends StatelessWidget {
                           // Check whether app is installed
                           bool isInstalled =
                               await DeviceApps.isAppInstalled('com.whatsapp');
-          
+
                           // Call open the application what you want
                           DeviceApps.openApp('com.whatsapp');
                         }),
@@ -96,10 +98,10 @@ class Clock extends StatelessWidget {
                               color: Color.fromARGB(115, 27, 26, 26)),
                           height: 70,
                           width: 70,
-                          child: Icon(
-                            Icons.whatsapp,
-                            color: Colors.white,
-                          ),
+                          // child: Icon(
+                          // Icons.whatsapp,
+                          // color: Colors.white,
+                          // ),
                         ),
                       ),
                       GestureDetector(
@@ -107,7 +109,7 @@ class Clock extends StatelessWidget {
                           // Check whether app is installed
                           bool isInstalled =
                               await DeviceApps.isAppInstalled('com.whatsapp');
-          
+
                           // Call open the application what you want
                           DeviceApps.openApp('com.google.android.dialer');
                         }),
@@ -128,7 +130,7 @@ class Clock extends StatelessWidget {
                           // Check whether app is installed
                           bool isInstalled =
                               await DeviceApps.isAppInstalled('com.whatsapp');
-          
+
                           // Call open the application what you want
                           DeviceApps.openApp(
                               'com.google.android.apps.nbu.paisa.user');
@@ -150,7 +152,7 @@ class Clock extends StatelessWidget {
                           // Check whether app is installed
                           bool isInstalled =
                               await DeviceApps.isAppInstalled('com.whatsapp');
-          
+
                           // Call open the application what you want
                           DeviceApps.openApp('com.spotify.music');
                         }),
@@ -170,62 +172,61 @@ class Clock extends StatelessWidget {
                   ),
                 ),
                 Container(
-            height: 100,
-            width: 350,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Color.fromARGB(115, 27, 26, 26)),
-                  height: 70,
-                  width: 70,
-                  child: Icon(
-                    Icons.swap_vert,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Color.fromARGB(115, 27, 26, 26)),
-                  height: 70,
-                  width: 70,
-                  child: Icon(
-                    Icons.vibration,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Color.fromARGB(115, 27, 26, 26)),
-                  height: 70,
-                  width: 70,
-                  child: Icon(
-                    Icons.wifi_outlined,
-                    color: Colors.white,
-                  ),
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(50),
-                      color: Color.fromARGB(115, 27, 26, 26)),
-                  height: 70,
-                  width: 70,
-                  child: Icon(
-                    Icons.light_sharp,
-                    color: Colors.white,
+                  height: 100,
+                  width: 350,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Color.fromARGB(115, 27, 26, 26)),
+                        height: 70,
+                        width: 70,
+                        child: Icon(
+                          Icons.swap_vert,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Color.fromARGB(115, 27, 26, 26)),
+                        height: 70,
+                        width: 70,
+                        child: Icon(
+                          Icons.vibration,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Color.fromARGB(115, 27, 26, 26)),
+                        height: 70,
+                        width: 70,
+                        child: Icon(
+                          Icons.wifi_outlined,
+                          color: Colors.white,
+                        ),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Color.fromARGB(115, 27, 26, 26)),
+                        height: 70,
+                        width: 70,
+                        child: Icon(
+                          Icons.light_sharp,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
           ),
-              ],
-            ),
-          ),
-          
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Column(
